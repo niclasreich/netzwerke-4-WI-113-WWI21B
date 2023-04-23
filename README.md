@@ -16,3 +16,18 @@ Die folgenden Ressourcen werden in den Code importiert:
 -   [jQuery 3.2.1 slim](https://code.jquery.com/jquery-3.2.1.slim.min.js)
 -   [Popper.js 1.12.9](https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js)
 -   [Bootstrap 4.0.0 JS](https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js)
+
+## Voraussetzungen:
+-   [flask](https://flask.palletsprojects.com/en/2.2.x/)
+-   [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/)
+-   [flask-login](https://flask-login.readthedocs.io/en/latest/)
+
+## Ausführung der App
+
+```bash
+python main.py
+```
+
+## Anzeigen der App
+
+Gehe zu `http://127.0.0.1:5000`
