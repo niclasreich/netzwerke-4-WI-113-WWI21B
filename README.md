@@ -1,6 +1,7 @@
 
 # Programm zur Erstellung einer HTML-Datei
 
+[![Generic badge](https://img.shields.io/static/v1?label=Attention&message=This%20needs%20work&color=orange)]
   
 
 Dieses Programm generiert eine HTML-Datei, die eine einfache Webseite darstellt. Die Seite enthält eine Bootstrap-Navigation, die je nach Zustand des Benutzers unterschiedliche Links anzeigt (zum Beispiel "Anmelden" oder "Abmelden"). Darüber hinaus werden auf der Seite eventuelle Fehler- oder Warnmeldungen angezeigt, die dem Benutzer mitgeteilt werden sollen. Die eigentlichen Inhalte der Webseite werden in einem Bereich mit der Klasse "container" angezeigt. Das Programm enthält auch JavaScript-Code, der eine Funktion definiert, um Notizen zu löschen.
@@ -9,7 +10,7 @@ Dieses Programm generiert eine HTML-Datei, die eine einfache Webseite darstellt.
 
 ## Verwendung
 
-  
+[![Generic badge](https://img.shields.io/static/v1?label=Attention&message=This%20needs%20work&color=orange)]
 
 Dieses Programm kann als Vorlage für die Erstellung von HTML-Dateien für Webseiten verwendet werden. Der Code kann einfach in einem beliebigen Texteditor eingegeben werden, und die HTML-Datei kann dann in einem Webbrowser geöffnet werden. Die Bootstrap- und Font Awesome-Bibliotheken, die in der HTML-Datei verlinkt sind, müssen jedoch online verfügbar sein, um ordnungsgemäß geladen zu werden.
 
