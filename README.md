@@ -71,24 +71,24 @@ Gehe zu `http://127.0.0.1:5000`
 
 Alle Notizen eines Benutzers abrufen.
 
-__Endpoint__
+__Schnittstelle__
 
 GET `/api/call/`
 
-__Parameters__
+__Parameter__
 
 * `username` (string, required) - User email.
 * `password` (string, required) - User password.
 
-__Example__
+__Beispiel__
 
 `/api/call/?username=LeonKohl%40test123.de&password=7044691640`
 
 
-__Response__
+__Antwort__
 
 * `Page` (string) - Page name.
-* `Status` (int) - HTTP response status code.
+* `Status` (int) - HTTP Antwort status code.
 * `Nachricht` (string) - Message.
 * `Notes` (list) - List of notes.
 
@@ -96,71 +96,71 @@ __Response__
 
 Eine neue Notiz erstellen.
 
-__Endpoint__
+__Schnittstelle__
 
 POST `/api/create/`
 
-__Parameters__
+__Parameter__
 
 * `username` (string, required) - User email.
 * `password` (string, required) - User password.
 * `note` (string, required) - Note.
 
-__Example__
+__Beispiel__
 
 `/api/create/?username=LeonKohl%40test123.de&password=7044691640&note=Test%20Notiz`
 
 
-__Response__
+__Antwort__
 
 * `Page` (string) - Page name.
-* `Status` (int) - HTTP response status code.
+* `Status` (int) - HTTP Antwort status code.
 * `Nachricht` (string) - Message.
 
 ### api_delete
 
 Alle Notizen eines Benutzers löschen.
 
-__Endpoint__
+__Schnittstelle__
 
 GET `/api/delete/`
 
-__Parameters__
+__Parameter__
 
 * `username` (string, required) - User email.
 * `password` (string, required) - User password.
 
-__Example__
+__Beispiel__
 
 `/api/delete/?username=LeonKohl%40test123.de&password=7044691640`
 
 
-__Response__
+__Antwort__
 
 * `Page` (string) - Page name.
-* `Status` (int) - HTTP response status code.
+* `Status` (int) - HTTP Antwort status code.
 * `Nachricht` (string) - Message.
 
 ### api_delete_recent
 
 Löscht die letzte Notiz eines Benutzers.
 
-__Endpoint__
+__Schnittstelle__
 
 GET `/api/delete-recent/`
 
-__Parameters__
+__Parameter__
 
 * `username` (string, required) - User email.
 * `password` (string, required) - User password.
 
-__Example__
+__Beispiel__
 
 `/api/delete-recent/?username=LeonKohl%40test123.de&password=7044691640`
 
 
-__Response__
+__Antwort__
 
 * `Page` (string) - Page name.
-* `Status` (int) - HTTP response status code.
+* `Status` (int) - HTTP Antwort status code.
 * `Nachricht` (string) - Message.
