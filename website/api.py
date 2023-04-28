@@ -1,6 +1,6 @@
 from flask import *
-from flask_login import login_required, current_user, login_user
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user
+from werkzeug.security import check_password_hash
 from .models import User, Note
 from . import db
 import json
@@ -10,6 +10,9 @@ api = Blueprint('api', __name__)
 @api.route('/api/', methods=['GET'])
 # example URL: /api/
 def api_home():
+    """
+    Does just load a basic homepage.
+    """
     data_set = {'Page': 'Home', 'Status': 200, 'Nachricht': 'Die Homepage wurde erfolgreich geladen!'}
     json_dump = json.dumps(data_set)
     return json_dump, 200
@@ -18,6 +21,9 @@ def api_home():
 # example URL: /api/request/
 # api does not check for username and password, simply puts given username and password into the json response
 def api_request():
+    """
+    Simply puts given username and password into the json response.
+    """
     username = str(request.args.get('username'))
     password = str(request.args.get('password'))
     data_set = {'Page': 'API Request', 'Status': 200, 'Nachricht': 'Die Homepage wurde erfolgreich geladen!', 'Username': username, 'Password': password}
@@ -25,8 +31,11 @@ def api_request():
     return json_dump, 200
 
 @api.route('/api/create/', methods=['GET', 'POST'])
-# example URL: /api/create/?username=LeonKohl%40test123.de&password=7044691640&note=Test%20Note
+# example URL: /api/create/?username=LeonKohl%40test123.de&password=7044691640&note=Test%20Notiz
 def api_create():
+    """
+    Create a new note.
+    """
     username = str(request.args.get('username'))
     password = str(request.args.get('password'))
     note = str(request.args.get('note'))

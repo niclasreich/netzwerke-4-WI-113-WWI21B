@@ -23,7 +23,6 @@ def login():
         else:
             flash("E-Mail-Adresse existiert nicht, bitte versuchen Sie es erneut.", category='error')
     data = request.form
-    print(data)
     return render_template("login.html", user=current_user)
 
 @auth.route('/logout')
