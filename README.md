@@ -39,17 +39,21 @@ Die folgenden Ressourcen werden in den Code importiert:
 
 ## Voraussetzungen:
 
-- [flask](https://flask.palletsprojects.com/en/2.2.x/)
+- [Flask](https://flask.palletsprojects.com/en/2.2.x/) - Ein Mikro-Web-Framework für Python
 
-- [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/)
+- [Flask_SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/) - Eine Erweiterung für Flask, die Unterstützung für SQLAlchemy bietet
 
-- [flask-login](https://flask-login.readthedocs.io/en/latest/)
+- [Flask_Login](https://flask-login.readthedocs.io/en/latest/) - Eine Erweiterung für Flask, die die Verwaltung von Benutzersitzungen ermöglicht
 
-  
+- [SQLAlchemy](https://www.sqlalchemy.org/) - Ein SQL-Toolkit und ORM für Python
+
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.3.x/) - Eine Python-Bibliothek für Webanwendungen, die Routing, Anfrage- und Antwortverarbeitung bietet
+
+
+Installieren:
+`pip install Flask Flask_SQLAlchemy Flask_Login SQLAlchemy Werkzeug`
 
 ## Ausführung der App
-
-  
 
 ```bash
 
