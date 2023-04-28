@@ -50,9 +50,11 @@ Die folgenden Ressourcen werden in den Code importiert:
 
 - [Werkzeug](https://werkzeug.palletsprojects.com/en/2.3.x/) - Eine Python-Bibliothek für Webanwendungen, die Routing, Anfrage- und Antwortverarbeitung bietet
 
+- [Pyngrok](https://pypi.org/project/pyngrok/) - Ein Python-Wrapper für ngrok, der sein eigenes Binary verwaltet und ngrok über eine komfortable Python-API verfügbar macht.
+
 
 Installieren:
-`pip install Flask Flask_SQLAlchemy Flask_Login SQLAlchemy Werkzeug`
+`pip install flask flask_sqlalchemy flask_login sqlalchemy werkzeug`
 
 ## Ausführung der App
 
@@ -69,6 +71,17 @@ python main.py
   
 
 Gehe zu `http://127.0.0.1:5000`
+
+
+## App öffentlich verfügbar machen
+
+```
+
+pip install pyngrok
+ngrok config add-authtoken <<YourToken>>  # from https://dashboard.ngrok.com/get-started/setup
+ngrok http 5000
+
+```
 
 ## API Documentation
 
