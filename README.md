@@ -69,7 +69,7 @@ Gehe zu `http://127.0.0.1:5000`
 
 ### api_get_notes
 
-Get all notes of a user.
+Alle Notizen eines Benutzers abrufen.
 
 __Endpoint__
 
@@ -94,7 +94,7 @@ __Response__
 
 ### api_create
 
-Create a new note.
+Eine neue Notiz erstellen.
 
 __Endpoint__
 
@@ -119,7 +119,7 @@ __Response__
 
 ### api_delete
 
-Delete all notes of a user.
+Alle Notizen eines Benutzers löschen.
 
 __Endpoint__
 
@@ -143,7 +143,7 @@ __Response__
 
 ### api_delete_recent
 
-Delete the most recent note of a user.
+Löscht die letzte Notiz eines Benutzers.
 
 __Endpoint__
 
