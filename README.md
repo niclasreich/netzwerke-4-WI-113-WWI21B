@@ -83,6 +83,15 @@ ngrok http 5000
 
 ```
 
+## Autoren
+
+- [Paula Enders (665939)](https://github.com/aluap-cyber)
+
+- [Nele Seehase (687933)](https://github.com/niclasreich/netzwerke-4-WI-113-WWI21B)
+
+- [Niclas Reich (652160)](https://github.com/niclasreich)
+
+
 ## API Documentation
 
 ### api_get_notes
