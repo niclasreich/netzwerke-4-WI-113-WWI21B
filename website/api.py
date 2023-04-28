@@ -1,40 +1,45 @@
-from flask import *
+from flask import Blueprint, request, jsonify
 from flask_login import login_user
 from werkzeug.security import check_password_hash
 from .models import User, Note
 from . import db
-import json
 
 api = Blueprint('api', __name__)
-
-@api.route('/api/', methods=['GET'])
-# example URL: /api/
-def api_home():
+    
+@api.route('/api/call/', methods=['GET'])
+def api_get_notes():
     """
-    Does just load a basic homepage.
-    """
-    data_set = {'Page': 'Home', 'Status': 200, 'Nachricht': 'Die Homepage wurde erfolgreich geladen!'}
-    json_dump = json.dumps(data_set)
-    return json_dump, 200
-
-@api.route('/api/request/', methods=['GET'])
-# example URL: /api/request/
-# api does not check for username and password, simply puts given username and password into the json response
-def api_request():
-    """
-    Simply puts given username and password into the json response.
+    Alle Notizen eines Benutzers abrufen.
+    Example GET: /api/call/?username=LeonKohl%40test123.de&password=7044691640
     """
     username = str(request.args.get('username'))
     password = str(request.args.get('password'))
-    data_set = {'Page': 'API Request', 'Status': 200, 'Nachricht': 'Die Homepage wurde erfolgreich geladen!', 'Username': username, 'Password': password}
-    json_dump = json.dumps(data_set)
-    return json_dump, 200
+    user = User.query.filter_by(email=username).first()
+    if user:
+        if check_password_hash(user.password, password):
+            notes = Note.query.filter_by(user_id=user.id).all()
+            note_list = []
+            for note in notes:
+                note_dict = {'id': note.id, 'data': note.data, 'date': note.date.strftime('%Y-%m-%d %H:%M:%S')}
+                note_list.append(note_dict)
+            if len(note_list) < 1:
+                data_set = {'Page': 'API Get Notes', 'Status': 204, 'Nachricht': 'No Content (Keine Notizen vorhanden)'}
+                return jsonify(data_set)
+            else:
+                data_set = {'Page': 'API Get Notes', 'Status': 200, 'Nachricht': 'OK', 'Notes': note_list}
+                return jsonify(data_set)
+        else:
+            data_set = {'Page': 'API Get Notes', 'Status': 401, 'Nachricht': 'Unauthorized (Das Passwort ist falsch)'}
+            return jsonify(data_set), 401
+    else:
+        data_set = {'Page': 'API Get Notes', 'Status': 401, 'Nachricht': 'Unauthorized (Benutzer existiert nicht)'}
+        return jsonify(data_set), 401
 
 @api.route('/api/create/', methods=['GET', 'POST'])
-# example URL: /api/create/?username=LeonKohl%40test123.de&password=7044691640&note=Test%20Notiz
 def api_create():
     """
-    Create a new note.
+    Eine neue Notiz erstellen.
+    Example POST: /api/create/?username=LeonKohl%40test123.de&password=7044691640&note=Test%20Notiz
     """
     username = str(request.args.get('username'))
     password = str(request.args.get('password'))
@@ -44,54 +49,68 @@ def api_create():
         if check_password_hash(user.password, password):  # check if password is correct
             if len(note) < 1:  # check if note is empty
                 data_set = {'Page': 'API Create Note', 'Status': 400, 'Nachricht': 'Bad Request (Notiz ist leer)'}
-                json_dump = json.dumps(data_set)
-                return json_dump, 400
+                return jsonify(data_set), 400
             else:  # create note if note is not empty
                 login_user(user)
                 new_note = Note(data=note, user_id=user.id)
                 db.session.add(new_note)
                 db.session.commit()
                 data_set = {'Page': 'API Create Note', 'Status': 201, 'Nachricht': 'Created (Notiz erfolgreich erstellt)'}
-                json_dump = json.dumps(data_set)
-                return json_dump, 201
+                return jsonify(data_set), 401
         else:  # return error if password is incorrect
             data_set = {'Page': 'API Create Note', 'Status': 401, 'Nachricht': 'Unauthorized (Das Passwort ist falsch)'}
-            json_dump = json.dumps(data_set)
-            return json_dump, 401
+            return jsonify(data_set), 401
     else:  # return error if user does not exist
         data_set = {'Page': 'API Create Note', 'Status': 401, 'Nachricht': 'Unauthorized (Benutzer existiert nicht)'}
-        json_dump = json.dumps(data_set)
-        return json_dump, 401
+        return jsonify(data_set), 401
     
-@api.route('/api/call/', methods=['GET'])
-# example URL: /api/call/?username=LeonKohl%40test123.de&password=7044691640
-def api_get_notes():
+@api.route('/api/delete/', methods=['GET', 'POST'])
+def api_delete():
     """
-    Get all notes from a user.
+    Alle Notizen eines Benutzers löschen.
+    Example GET: /api/delete/?username=LeonKohl%40test123.de&password=7044691640
     """
     username = str(request.args.get('username'))
     password = str(request.args.get('password'))
     user = User.query.filter_by(email=username).first()
-    if user:  # check if user exists
-        if check_password_hash(user.password, password):  # check if password is correct
-            notes = Note.query.filter_by(user_id=user.id).all()  # retrieve all notes for the user
-            note_list = []  # create a list of dictionaries representing the notes
+    if user:
+        if check_password_hash(user.password, password):
+            notes = Note.query.filter_by(user_id=user.id).all()
             for note in notes:
-                note_dict = {'id': note.id, 'data': note.data, 'date': note.date.strftime('%Y-%m-%d %H:%M:%S')}
-                note_list.append(note_dict)
-            if len(note_list) < 1:  # check if note list is empty
-                data_set = {'Page': 'API Get Notes', 'Status': 204, 'Nachricht': 'No Content (Keine Notizen vorhanden)'}
-                json_dump = json.dumps(data_set)
-                return json_dump  # , 204 --> 204 does not work with json.dumps
-            else:  # return note list if note list is not empty
-                data_set = {'Page': 'API Get Notes', 'Status': 200, 'Message': 'OK', 'Notes': note_list}
-                json_dump = json.dumps(data_set)
-                return json_dump
-        else:  # return error if password is incorrect
-            data_set = {'Page': 'API Get Notes', 'Status': 401, 'Nachricht': 'Unauthorized (Das Passwort ist falsch)'}
-            json_dump = json.dumps(data_set)
-            return json_dump, 401
-    else:  # return error if user does not exist
-        data_set = {'Page': 'API Get Notes', 'Status': 401, 'Nachricht': 'Unauthorized (Benutzer existiert nicht)'}
-        json_dump = json.dumps(data_set)
-        return json_dump, 401
+                db.session.delete(note)
+            db.session.commit()
+            data_set = {'Page': 'API Delete Notes', 'Status': 200, 'Nachricht': 'OK (Alle Notizen erfolgreich gelöscht)'}
+            return jsonify(data_set)
+        else:
+            data_set = {'Page': 'API Delete Notes', 'Status': 401, 'Nachricht': 'Unauthorized (Das Passwort ist falsch)'}
+            return jsonify(data_set), 401
+    else:
+        data_set = {'Page': 'API Delete Notes', 'Status': 401, 'Nachricht': 'Unauthorized (Benutzer existiert nicht)'}
+        return jsonify(data_set), 401
+    
+@api.route('/api/delete-recent/', methods=['GET', 'POST'])
+def api_delete_recent():
+    """
+    Löscht die letzte Notiz eines Benutzers.
+    Example GET: /api/delete-recent/?username=LeonKohl%40test123.de&password=7044691640
+    """
+    username = str(request.args.get('username'))
+    password = str(request.args.get('password'))
+    user = User.query.filter_by(email=username).first()
+    if user:
+        if check_password_hash(user.password, password):
+            most_recent_note = Note.query.filter_by(user_id=user.id).order_by(Note.date.desc()).first()
+            if most_recent_note:
+                db.session.delete(most_recent_note)
+                db.session.commit()
+                data_set = {'Page': 'API Delete Recent Note', 'Status': 200, 'Nachricht': 'OK (Letzte Notiz erfolgreich gelöscht)'}
+                return jsonify(data_set)
+            else:
+                data_set = {'Page': 'API Delete Recent Note', 'Status': 204, 'Nachricht': 'No Content (Keine Notizen vorhanden)'}
+                return jsonify(data_set), 204
+        else:
+            data_set = {'Page': 'API Delete Recent Note', 'Status': 401, 'Nachricht': 'Unauthorized (Das Passwort ist falsch)'}
+            return jsonify(data_set), 401
+    else:
+        data_set = {'Page': 'API Delete Recent Note', 'Status': 401, 'Nachricht': 'Unauthorized (Benutzer existiert nicht)'}
+        return jsonify(data_set), 401
