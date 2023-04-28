@@ -11,8 +11,8 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = '55A2EFCFA2AE126612B7C9CCE12BA'
     '''
-    Hosting a Database on a different Server (e.g. MySQL)?
-    Replace the sqlite:/// URL with a MySQL URL
+    Hosting der Datenbank auf einem anderen Server (z.B. MySQL)?
+    Ersetzen Sie die URL sqlite:/// durch eine MySQL-URL:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://k97841_netzwerke:E5zi8fE08@10.35.46.197:3306/k97841_netzwerke'
     '''
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
