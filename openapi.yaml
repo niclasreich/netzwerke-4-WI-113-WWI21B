@@ -1,0 +1,164 @@
+openapi: 3.0.0
+info:
+  title: Notizen API
+  version: 1.0.0
+paths:
+  /api/call:
+    get:
+      summary: Alle Notizen eines Benutzers abrufen
+      description: "Diese Route gibt alle Notizen des angegebenen Benutzers zurück, sofern die angegebenen Anmeldeinformationen korrekt sind."
+      parameters:
+        - name: username
+          in: query
+          required: true
+          description: Die E-Mail-Adresse des Benutzers.
+          schema:
+            type: string
+            format: email
+        - name: password
+          in: query
+          required: true
+          description: Das Passwort des Benutzers.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Erfolgreiche Anfrage
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API Get Notes
+                  Status:
+                    type: integer
+                    example: 200
+                  Nachricht:
+                    type: string
+                    example: OK
+                  Notes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        data:
+                          type: string
+                          example: "Testnote"
+                        date:
+                          type: string
+                          example: "2023-04-30 15:30:00"
+        '204':
+          description: Kein Inhalt
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API Get Notes
+                  Status:
+                    type: integer
+                    example: 204
+                  Nachricht:
+                    type: string
+                    example: "No Content (Keine Notizen vorhanden)"
+        '401':
+          description: Nicht autorisiert
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API Get Notes
+                  Status:
+                    type: integer
+                    example: 401
+                  Nachricht:
+                    type: string
+                    example: "Unauthorized (Benutzer existiert nicht)"
+    servers:
+      - url: http://localhost:5000
+        description: Lokaler Server
+  /api/create/:
+    post:
+      summary: Eine neue Notiz erstellen.
+      parameters:
+        - name: username
+          in: query
+          description: Der Benutzername des Benutzers.
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: Das Passwort des Benutzers.
+          required: true
+          schema:
+            type: string
+        - name: note
+          in: query
+          description: Der Text der Notiz.
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Notiz erfolgreich erstellt.
+        '400':
+          description: Bad Request - Notiz ist leer.
+        '401':
+          description: Unauthorized - Benutzer existiert nicht oder das Passwort ist falsch.
+    get:
+      deprecated: true
+  /api/delete/:
+    post:
+      summary: Alle Notizen eines Benutzers löschen.
+      parameters:
+        - name: username
+          in: query
+          description: Der Benutzername des Benutzers.
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: Das Passwort des Benutzers.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Alle Notizen erfolgreich gelöscht.
+        '401':
+          description: Unauthorized - Benutzer existiert nicht oder das Passwort ist falsch.
+  /api/delete-recent/:
+    get:
+      summary: Löscht die letzte Notiz eines Benutzers.
+      parameters:
+        - name: username
+          in: query
+          description: Der Benutzername des Benutzers.
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: Das Passwort des Benutzers.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Letzte Notiz erfolgreich gelöscht.
+        '204':
+          description: No Content - Keine Notizen vorhanden.
+        '401':
+          description: Unauthorized - Benutzer existiert nicht oder das Passwort ist falsch.
