@@ -11,12 +11,10 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = '55A2EFCFA2AE126612B7C9CCE12BA'
     '''
-    Hosting der Datenbank auf einem anderen Server (z.B. MySQL)?
-    Hierzu wird pymysql benötigt: pip install pymysql
-    Ersetzen Sie die URL sqlite:/// durch eine MySQL-URL:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sql7615055:dHH854eHaL@sql7.freemysqlhosting.net/sql7615055'
-    '''
+    Hosting der Datenbank lieber lokal?
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    '''
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sql7615055:dHH854eHaL@sql7.freemysqlhosting.net/sql7615055'
 
     db.init_app(app)
 
@@ -29,7 +27,7 @@ def create_app():
     app.register_blueprint(api, url_prefix='/')
 
     from .models import User, Note
-    
+
     with app.app_context():
         db.create_all()
 
@@ -43,6 +41,7 @@ def create_app():
         return User.query.get(int(id))
 
     return app
+
 
 def create_database(app):
     if not path.exists('website/' + DB_NAME):

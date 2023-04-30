@@ -48,9 +48,11 @@ Die folgenden Ressourcen werden in den Code importiert:
 
 - [Pyngrok](https://pypi.org/project/pyngrok/) - Ein Python-Wrapper für ngrok, der sein eigenes Binary verwaltet und ngrok über eine komfortable Python-API verfügbar macht.
 
+- [pymsql](https://pypi.org/project/pymysql/) - Dieses Paket enthält eine reine Python-MySQL-Client-Bibliothek, die auf PEP 249 basiert.
+
 Installieren:
 
-`pip install flask flask_sqlalchemy flask_login sqlalchemy werkzeug`
+`pip install flask flask_sqlalchemy flask_login sqlalchemy werkzeug pymysql`
 
 ## Ausführung der App
 
@@ -62,17 +64,17 @@ Gehe zu `http://127.0.0.1:5000`
 
 ## Datenbank-Hosting
 
-|            |                                           |
-| ---------- | ----------------------------------------- |
-| Datenbank  | https://www.freemysqlhosting.net/account/ |
-| E-Mail     | owq03838@zslsz.com                        |
-| Pasaswort  | owq03838@zslsz.com                        |
-| phpmyadmin | https://www.phpmyadmin.co/                |
-| Server     | sql7.freemysqlhosting.net                 |
-| Name       | sql7615055                                |
-| Username   | sql7615055                                |
-| Pasaswort  | dHH854eHaL                                |
-| Port       | 3306                                      |
+| Zugangsdaten |                                           |
+| ------------ | ----------------------------------------- |
+| Datenbank    | https://www.freemysqlhosting.net/account/ |
+| E-Mail       | owq03838@zslsz.com                        |
+| Pasaswort    | owq03838@zslsz.com                        |
+| phpmyadmin   | https://www.phpmyadmin.co/                |
+| Server       | sql7.freemysqlhosting.net                 |
+| Name         | sql7615055                                |
+| Username     | sql7615055                                |
+| Pasaswort    | dHH854eHaL                                |
+| Port         | 3306                                      |
 
 ## App öffentlich verfügbar machen
 
