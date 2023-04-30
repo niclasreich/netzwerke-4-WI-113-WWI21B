@@ -1,8 +1,7 @@
 # Programm zur Erstellung einer HTML-Datei
 
-![Generic badge](<https://img.shields.io/static/v1?label=Paula%20%20und%20%20Nele&message=Bitte%20%C3%BCberarbeiten%20(Text%20schreiben)&color=orange>)
+Das vorliegende Programm ist eine Flask-Webanwendung, die es Benutzern ermöglicht, Notizen zu erstellen und zu speichern. Das Programm ist in Python geschrieben und verwendet Flask- und SQLAlchemy-Bibliotheken sowie Flask-Login zur Benutzerverwaltung. Die Webanwendung wird in einer HTML-Datei angezeigt, die mit Bootstrap und Font Awesome gestaltetist und wird auf einem öffentlich zugänglichen Server gehostet, der mit ngrok bereitgestellt wird. 
 
-Dieses Programm generiert eine HTML-Datei, die eine einfache Webseite darstellt. Die Seite enthält eine Bootstrap-Navigation, die je nach Zustand des Benutzers unterschiedliche Links anzeigt (zum Beispiel "Anmelden" oder "Abmelden"). Darüber hinaus werden auf der Seite eventuelle Fehler- oder Warnmeldungen angezeigt, die dem Benutzer mitgeteilt werden sollen. Die eigentlichen Inhalte der Webseite werden in einem Bereich mit der Klasse "container" angezeigt. Das Programm enthält auch JavaScript-Code, der eine Funktion definiert, um Notizen zu löschen.
 
 ## Inhaltsverzeichnis
 
@@ -39,6 +38,8 @@ Dieses Programm generiert eine HTML-Datei, die eine einfache Webseite darstellt.
 - [Datenbank-Hosting](#datenbank-hosting)
 
 - [App öffentlich verfügbar machen](#app-öffentlich-verfügbar-machen)
+
+- [Applikationsprotokoll](#applikationsprotokoll)
 
 - [API Documentation](#api-documentation)
 
@@ -173,6 +174,21 @@ ngrok config add-authtoken <<YourToken>> # from https://dashboard.ngrok.com/get-
 ngrok http 5000
 
 ```
+
+## Applikationsprotokoll
+
+
+In der Datei `__init__.py` wird die App-Factory-Funktion `create_app()` definiert, die die Flask-App erstellt und konfiguriert. Es wird eine Geheimhaltungsschlüssel festgelegt, um die Anwendung vor Angriffen zu schützen. Außerdem wird eine MySQL-Datenbank festgelegt und eine Verbindung zur Datenbank hergestellt. Die Flask-Blueprints für die verschiedenen Teile der Anwendung werden registriert und die Datenbank wird initialisiert. Ein Login-Manager wird ebenfalls initialisiert und die Login-View wird festgelegt.
+
+In der Datei `views.py` werden die Routen für die verschiedenen Seiten der Anwendung definiert. Die Route `'/'` stellt die Hauptseite der Anwendung dar, auf der Benutzer ihre Notizen anzeigen und neue Notizen erstellen können. Wenn ein Benutzer eine neue Notiz erstellt, wird sie in der Datenbank gespeichert. Die Route '/delete-note' wird verwendet, um eine vorhandene Notiz zu löschen.
+
+In der Datei `models.py` werden die Datenbankmodelle für Benutzer und Notizen definiert. Das Notiz-Modell hat eine ID, den Inhalt der Notiz, das Erstellungsdatum und eine Fremdschlüsselbeziehung zum Benutzer, dem die Notiz gehört. Das Benutzermodell hat eine ID, eine E-Mail-Adresse, ein Passwort und den Vornamen des Benutzers sowie eine Beziehung zu den Notizen des Benutzers.
+
+In der Datei `auth.py` definiert der Code Routen für die Benutzerauthentifizierung. Der Code verwendet die Blueprint-Klasse von Flask, um ein separates Modul zu definieren, das in die Flask-App importiert und registriert werden kann. Die Route `/login` nimmt eine GET- oder POST-Anfrage entgegen. Bei einer POST-Anfrage prüft der Code, ob die E-Mail und das Passwort des Benutzers mit einem Datensatz in der Datenbank übereinstimmen. Wenn die E-Mail-Adresse und das Passwort des Benutzers übereinstimmen, meldet der Code den Benutzer an und speichert ein Cookie in seinem Browser. Wenn sie nicht übereinstimmen, wird der Benutzer über den Fehler informiert. Bei einer GET-Anfrage wird dem Benutzer die Anmeldeseite angezeigt. Die `/logout`-Route meldet den Benutzer ab, indem sie sein Cookie entfernt. Die `/sign-up`-Route nimmt eine GET- oder POST-Anfrage entgegen. Bei einer POST-Anfrage prüft der Code, ob die E-Mail, der Vorname und das Passwort des Benutzers bestimmte Kriterien erfüllen. Wenn die E-Mail bereits verwendet wurde oder die Mindestlänge nicht erfüllt, oder wenn der Vorname nicht der Mindestlänge entspricht, oder wenn die Passwörter nicht übereinstimmen oder nicht der Mindestlänge entsprechen, wird dem Benutzer eine Fehlermeldung angezeigt. Andernfalls wird ein neuer Benutzer angelegt und eingeloggt. Bei einer GET-Anfrage wird dem Benutzer die Anmeldeseite angezeigt.
+
+In der Datei `api.py` definiert der Code Routen zum Erstellen und Abrufen von Notizen über eine API. Die Routen werden ebenfalls mithilfe der Blueprint-Klasse von Flask definiert. Die Route `/api/call` nimmt eine GET-Anfrage mit Parametern für den Benutzernamen und das Passwort entgegen. Der Code prüft, ob der Benutzername und das Passwort mit einem Datensatz in der Datenbank übereinstimmen. Wenn sie übereinstimmen, ruft der Code alle mit diesem Benutzer verbundenen Notizen ab und gibt eine JSON-Antwort mit den Notizdaten zurück. Wenn sie nicht übereinstimmen, wird eine Fehlermeldung zurückgegeben. Die `/api/create`-Route nimmt eine GET- oder POST-Anfrage mit Parametern für den Benutzernamen, das Passwort und die Notiz entgegen. Der Code prüft, ob der Benutzername und das Kennwort mit einem Datensatz in der Datenbank übereinstimmen. Wenn sie übereinstimmen und die Notiz nicht leer ist, wird eine neue Notiz erstellt und mit dem Benutzer verknüpft. Wenn der Benutzername oder das Kennwort falsch sind oder die Notiz leer ist, wird eine Fehlermeldung zurückgegeben.
+
+Insgesamt bietet die Anwendung eine einfache Möglichkeit für Benutzer, Notizen zu erstellen und zu verwalten. Durch die Verwendung von Flask-Login und SQLAlchemy ist es sicher und robust, und es bietet eine gute Grundlage für die Erweiterung der Funktionalität in der Zukunft.
 
 ## API Documentation
 
