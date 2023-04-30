@@ -4,6 +4,46 @@
 
 Dieses Programm generiert eine HTML-Datei, die eine einfache Webseite darstellt. Die Seite enthält eine Bootstrap-Navigation, die je nach Zustand des Benutzers unterschiedliche Links anzeigt (zum Beispiel "Anmelden" oder "Abmelden"). Darüber hinaus werden auf der Seite eventuelle Fehler- oder Warnmeldungen angezeigt, die dem Benutzer mitgeteilt werden sollen. Die eigentlichen Inhalte der Webseite werden in einem Bereich mit der Klasse "container" angezeigt. Das Programm enthält auch JavaScript-Code, der eine Funktion definiert, um Notizen zu löschen.
 
+## Demo
+
+### Einleitung
+
+Die vorliegende Dokumentation bietet eine Übersicht über die verwendete Software und deren Konfiguration für die Demo. Die Demo-Entwicklungsumgebung basiert auf Oracle Cloud, Canonical-Ubuntu-22.04-aarch64-2023.02.15-0 als Image, Python 3.10.6 als Programmiersprache, tmux als Terminal-Multiplexer und ngrok als Reverse-Proxy.
+
+#### Oracle Cloud
+
+Oracle Cloud ist eine Cloud Computing-Plattform, die eine umfassende Palette von Cloud-Diensten für Unternehmen bietet. In der Demo wird Oracle Cloud verwendet, um die Server-Infrastruktur bereitzustellen.
+
+#### Canonical-Ubuntu
+
+Canonical-Ubuntu-22.04-aarch64-2023.02.15-0 ist das verwendete Betriebssystem-Image für die Demo-IDE. Es basiert auf Ubuntu 22.04 und ist für die ARM-Architektur optimiert.
+
+#### Python
+
+Python 3.10.6 ist die Programmiersprache, die für die Entwicklung der Demo-Software verwendet wurde. Python ist eine leistungsstarke, flexible und einfach zu erlernende Sprache, die für eine Vielzahl von Anwendungen geeignet ist.
+
+#### Tmux
+
+Tmux ist ein Terminal-Multiplexer, der es Benutzern ermöglicht, mehrere virtuelle Konsolen in einem einzigen Terminal-Fenster zu erstellen. Dies ist besonders nützlich für Entwickler, die mehrere Prozesse gleichzeitig ausführen müssen.
+
+#### Ngrok
+
+Ngrok ist ein Reverse-Proxy, der es Benutzern ermöglicht, lokale Webanwendungen über das Internet zugänglich zu machen. Dies ist besonders nützlich für Demos, da Entwickler ihre Anwendungen ohne Aufwand auf einem öffentlich zugänglichen Server bereitstellen können.
+
+### Demo-Logindaten
+
+Die Demo-Logindaten sind wie folgt:
+
+URL: [https://9a27-130-61-149-222.ngrok-free.app/](https://9a27-130-61-149-222.ngrok-free.app/)
+Benutzername: netzwerke@hwr.berlin
+Passwort: netzwerke123
+
+Die URL ist die öffentlich zugängliche Adresse der Demo-Webanwendung, während der Benutzername und das Passwort verwendet werden, um sich bei der Anwendung anzumelden.
+
+### Fazit
+
+Insgesamt bietet die Demo-Entwicklungsumgebung eine vollständige Entwicklungs- und Bereitstellungsumgebung, die es uns ermöglicht, leistungsfähige Webanwendungen zu erstellen und auf einem öffentlich zugänglichen Server bereitzustellen. Mit der Verwendung von Oracle Cloud, Canonical-Ubuntu-22.04-aarch64-2023.02.15-0, Python 3.10.6, tmux und ngrok wird die Bereitstellung der Demo-Webanwendung einfach und schnell.
+
 ## Verwendung
 
 ![Generic badge](https://img.shields.io/static/v1?label=Attention&message=This%20needs%20work&color=orange)
@@ -106,7 +146,7 @@ GET `/api/call/`
 
 **Beispiel**
 
-`/api/call/?username=LeonKohl%40test123.de&password=7044691640`
+`/api/call/?username=netzwerke%40hwr.berlin&password=netzwerke123`
 
 **Antwort**
 
@@ -136,7 +176,7 @@ POST `/api/create/`
 
 **Beispiel**
 
-`/api/create/?username=LeonKohl%40test123.de&password=7044691640&note=Test%20Notiz`
+`/api/create/?username=netzwerke%40hwr.berlin&password=netzwerke123&note=Test%20Notiz`
 
 **Antwort**
 
@@ -162,7 +202,7 @@ GET `/api/delete/`
 
 **Beispiel**
 
-`/api/delete/?username=LeonKohl%40test123.de&password=7044691640`
+`/api/delete/?username=netzwerke%40hwr.berlin&password=netzwerke123`
 
 **Antwort**
 
@@ -188,7 +228,7 @@ GET `/api/delete-recent/`
 
 **Beispiel**
 
-`/api/delete-recent/?username=LeonKohl%40test123.de&password=7044691640`
+`/api/delete-recent/?username=netzwerke%40hwr.berlin&password=netzwerke123`
 
 **Antwort**
 
