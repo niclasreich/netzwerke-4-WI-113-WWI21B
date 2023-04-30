@@ -34,8 +34,14 @@ Ngrok ist ein Reverse-Proxy, der es Benutzern ermöglicht, lokale Webanwendungen
 
 Die Demo-Logindaten sind wie folgt:
 
+| Zugangsdaten |                                             |
+| ------------ | ------------------------------------------- |
+| URL          | https://9a27-130-61-149-222.ngrok-free.app/ |
+| Benutzername | netzwerke@hwr.berlin                        |
+| Passwort     | netzwerke123                                |
+
 URL: [https://9a27-130-61-149-222.ngrok-free.app/](https://9a27-130-61-149-222.ngrok-free.app/)
-Benutzername: netzwerke@hwr.berlin
+Benutzername: 
 Passwort: netzwerke123
 
 Die URL ist die öffentlich zugängliche Adresse der Demo-Webanwendung, während der Benutzername und das Passwort verwendet werden, um sich bei der Anwendung anzumelden.
