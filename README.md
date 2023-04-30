@@ -143,7 +143,7 @@ Die folgenden Ressourcen werden in den Code importiert:
 
 ## Ausführung der App
 
-`python main.py`
+`python3 main.py`
 
 ## Anzeigen der App
 
