@@ -12,8 +12,9 @@ def create_app():
     app.config['SECRET_KEY'] = '55A2EFCFA2AE126612B7C9CCE12BA'
     '''
     Hosting der Datenbank auf einem anderen Server (z.B. MySQL)?
+    Hierzu wird pymysql benötigt: pip install pymysql
     Ersetzen Sie die URL sqlite:/// durch eine MySQL-URL:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://k97841_netzwerke:E5zi8fE08@10.35.46.197:3306/k97841_netzwerke'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sql7615055:dHH854eHaL@sql7.freemysqlhosting.net/sql7615055'
     '''
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
 

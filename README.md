@@ -1,12 +1,8 @@
-
 # Programm zur Erstellung einer HTML-Datei
 
 ![Generic badge](https://img.shields.io/static/v1?label=Attention&message=This%20needs%20work&color=orange)
-  
 
 Dieses Programm generiert eine HTML-Datei, die eine einfache Webseite darstellt. Die Seite enthält eine Bootstrap-Navigation, die je nach Zustand des Benutzers unterschiedliche Links anzeigt (zum Beispiel "Anmelden" oder "Abmelden"). Darüber hinaus werden auf der Seite eventuelle Fehler- oder Warnmeldungen angezeigt, die dem Benutzer mitgeteilt werden sollen. Die eigentlichen Inhalte der Webseite werden in einem Bereich mit der Klasse "container" angezeigt. Das Programm enthält auch JavaScript-Code, der eine Funktion definiert, um Notizen zu löschen.
-
-  
 
 ## Verwendung
 
@@ -14,15 +10,9 @@ Dieses Programm generiert eine HTML-Datei, die eine einfache Webseite darstellt.
 
 Dieses Programm kann als Vorlage für die Erstellung von HTML-Dateien für Webseiten verwendet werden. Der Code kann einfach in einem beliebigen Texteditor eingegeben werden, und die HTML-Datei kann dann in einem Webbrowser geöffnet werden. Die Bootstrap- und Font Awesome-Bibliotheken, die in der HTML-Datei verlinkt sind, müssen jedoch online verfügbar sein, um ordnungsgemäß geladen zu werden.
 
-  
-
 Das Programm enthält auch Code für die Handhabung von Flash-Nachrichten, die dazu dienen, dem Benutzer nach bestimmten Aktionen auf der Website Rückmeldungen zu geben. Außerdem enthält es JavaScript-Code zum Löschen einer Notiz auf der Website.
 
-  
-
 Der Code ist für Flask konzipiert, ein in Python geschriebenes Webanwendungs-Framework.
-
-  
 
 Die folgenden Ressourcen werden in den Code importiert:
 
@@ -36,7 +26,13 @@ Die folgenden Ressourcen werden in den Code importiert:
 
 - [Bootstrap 4.0.0 JS](https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js)
 
-  
+## Aufgaben
+
+- [x] Webapplikation (z. B. simpler Chat) erstellen, deren Teile mittels Sockets oder HTTP miteinander kommunizieren
+- [ ] Applikationsprotokoll
+- [ ] OpenAPI Spezifikation Eurer API unter Nutzung von Libraries wie connexion unter Python
+- [x] Verteilung von Backend (da wo Logik und API verortet sind) und Speicherungsteil (Datenbank) auf unterschiedlichen Servern
+- [x] Applikation enthält eine Authentifizierung
 
 ## Voraussetzungen:
 
@@ -52,45 +48,43 @@ Die folgenden Ressourcen werden in den Code importiert:
 
 - [Pyngrok](https://pypi.org/project/pyngrok/) - Ein Python-Wrapper für ngrok, der sein eigenes Binary verwaltet und ngrok über eine komfortable Python-API verfügbar macht.
 
-
 Installieren:
+
 `pip install flask flask_sqlalchemy flask_login sqlalchemy werkzeug`
 
 ## Ausführung der App
 
-```bash
-
-python main.py
-
-```
-
-  
+`python main.py`
 
 ## Anzeigen der App
 
-  
-
 Gehe zu `http://127.0.0.1:5000`
 
+## Datenbank-Hosting
+
+|            |                                           |
+| ---------- | ----------------------------------------- |
+| Datenbank  | https://www.freemysqlhosting.net/account/ |
+| E-Mail     | owq03838@zslsz.com                        |
+| Pasaswort  | owq03838@zslsz.com                        |
+| phpmyadmin | https://www.phpmyadmin.co/                |
+| Server     | sql7.freemysqlhosting.net                 |
+| Name       | sql7615055                                |
+| Username   | sql7615055                                |
+| Pasaswort  | dHH854eHaL                                |
+| Port       | 3306                                      |
 
 ## App öffentlich verfügbar machen
 
 ```
 
 pip install pyngrok
-ngrok config add-authtoken <<YourToken>>  # from https://dashboard.ngrok.com/get-started/setup
+
+ngrok config add-authtoken <<YourToken>> # from https://dashboard.ngrok.com/get-started/setup
+
 ngrok http 5000
 
 ```
-
-## Autoren
-
-- [Paula Enders (665939)](https://github.com/aluap-cyber)
-
-- [Nele Seehase (687933)](https://github.com/niclasreich/netzwerke-4-WI-113-WWI21B)
-
-- [Niclas Reich (652160)](https://github.com/niclasreich)
-
 
 ## API Documentation
 
@@ -98,96 +92,106 @@ ngrok http 5000
 
 Alle Notizen eines Benutzers abrufen.
 
-__Schnittstelle__
+**Schnittstelle**
 
 GET `/api/call/`
 
-__Parameter__
+**Parameter**
 
-* `username` (string, required) - User email.
-* `password` (string, required) - User password.
+- `username` (string, required) - User email.
 
-__Beispiel__
+- `password` (string, required) - User password.
+
+**Beispiel**
 
 `/api/call/?username=LeonKohl%40test123.de&password=7044691640`
 
+**Antwort**
 
-__Antwort__
+- `Page` (string) - Page name.
 
-* `Page` (string) - Page name.
-* `Status` (int) - HTTP Antwort status code.
-* `Nachricht` (string) - Message.
-* `Notes` (list) - List of notes.
+- `Status` (int) - HTTP Antwort status code.
+
+- `Nachricht` (string) - Message.
+
+- `Notes` (list) - List of notes.
 
 ### api_create
 
 Eine neue Notiz erstellen.
 
-__Schnittstelle__
+**Schnittstelle**
 
 POST `/api/create/`
 
-__Parameter__
+**Parameter**
 
-* `username` (string, required) - User email.
-* `password` (string, required) - User password.
-* `note` (string, required) - Note.
+- `username` (string, required) - User email.
 
-__Beispiel__
+- `password` (string, required) - User password.
+
+- `note` (string, required) - Note.
+
+**Beispiel**
 
 `/api/create/?username=LeonKohl%40test123.de&password=7044691640&note=Test%20Notiz`
 
+**Antwort**
 
-__Antwort__
+- `Page` (string) - Page name.
 
-* `Page` (string) - Page name.
-* `Status` (int) - HTTP Antwort status code.
-* `Nachricht` (string) - Message.
+- `Status` (int) - HTTP Antwort status code.
+
+- `Nachricht` (string) - Message.
 
 ### api_delete
 
 Alle Notizen eines Benutzers löschen.
 
-__Schnittstelle__
+**Schnittstelle**
 
 GET `/api/delete/`
 
-__Parameter__
+**Parameter**
 
-* `username` (string, required) - User email.
-* `password` (string, required) - User password.
+- `username` (string, required) - User email.
 
-__Beispiel__
+- `password` (string, required) - User password.
+
+**Beispiel**
 
 `/api/delete/?username=LeonKohl%40test123.de&password=7044691640`
 
+**Antwort**
 
-__Antwort__
+- `Page` (string) - Page name.
 
-* `Page` (string) - Page name.
-* `Status` (int) - HTTP Antwort status code.
-* `Nachricht` (string) - Message.
+- `Status` (int) - HTTP Antwort status code.
+
+- `Nachricht` (string) - Message.
 
 ### api_delete_recent
 
 Löscht die letzte Notiz eines Benutzers.
 
-__Schnittstelle__
+**Schnittstelle**
 
 GET `/api/delete-recent/`
 
-__Parameter__
+**Parameter**
 
-* `username` (string, required) - User email.
-* `password` (string, required) - User password.
+- `username` (string, required) - User email.
 
-__Beispiel__
+- `password` (string, required) - User password.
+
+**Beispiel**
 
 `/api/delete-recent/?username=LeonKohl%40test123.de&password=7044691640`
 
+**Antwort**
 
-__Antwort__
+- `Page` (string) - Page name.
 
-* `Page` (string) - Page name.
-* `Status` (int) - HTTP Antwort status code.
-* `Nachricht` (string) - Message.
+- `Status` (int) - HTTP Antwort status code.
+
+- `Nachricht` (string) - Message.
