@@ -1,8 +1,54 @@
 # Programm zur Erstellung einer HTML-Datei
 
-![Generic badge](https://img.shields.io/static/v1?label=Paula%20%20und%20%20Nele&message=Bitte%20%C3%BCberarbeiten%20(Text%20schreiben)&color=orange)
+![Generic badge](<https://img.shields.io/static/v1?label=Paula%20%20und%20%20Nele&message=Bitte%20%C3%BCberarbeiten%20(Text%20schreiben)&color=orange>)
 
 Dieses Programm generiert eine HTML-Datei, die eine einfache Webseite darstellt. Die Seite enthält eine Bootstrap-Navigation, die je nach Zustand des Benutzers unterschiedliche Links anzeigt (zum Beispiel "Anmelden" oder "Abmelden"). Darüber hinaus werden auf der Seite eventuelle Fehler- oder Warnmeldungen angezeigt, die dem Benutzer mitgeteilt werden sollen. Die eigentlichen Inhalte der Webseite werden in einem Bereich mit der Klasse "container" angezeigt. Das Programm enthält auch JavaScript-Code, der eine Funktion definiert, um Notizen zu löschen.
+
+## Inhaltsverzeichnis
+
+- [Demo](#demo)
+
+	- [Einleitung](#einleitung)
+
+		- [Oracle Cloud](#oracle-cloud)
+
+		- [Canonical-Ubuntu](#canonical-ubuntu)
+
+		- [Python](#python)
+
+		- [Tmux](#tmux)
+
+		- [Ngrok](#ngrok)
+
+	- [Demo-Logindaten](#demo-logindaten)
+
+	- [Fazit](#fazit)
+
+- [Verwendung](#verwendung)
+
+- [Aufgaben](#aufgaben)
+
+- [Voraussetzungen](#voraussetzungen)
+
+	- [Installieren](#installieren)
+
+- [Ausführung der App](#ausführung-der-app)
+
+- [Anzeigen der App](#anzeigen-der-app)
+
+- [Datenbank-Hosting](#datenbank-hosting)
+
+- [App öffentlich verfügbar machen](#app-öffentlich-verfügbar-machen)
+
+- [API Documentation](#api-documentation)
+
+	- [api_get_notes](#api_get_-_notes)
+
+	- [api_create](#api_create)
+
+	- [api_delete](#api_delete)
+
+	- [api_delete recent](#api_delete-recent)
 
 ## Demo
 
@@ -46,7 +92,7 @@ Insgesamt bietet die Demo-Entwicklungsumgebung eine vollständige Entwicklungs- 
 
 ## Verwendung
 
-![Generic badge](https://img.shields.io/static/v1?label=Paula%20%20und%20%20Nele&message=Bitte%20%C3%BCberarbeiten%20(Text%20schreiben)&color=orange)
+![Generic badge](<https://img.shields.io/static/v1?label=Paula%20%20und%20%20Nele&message=Bitte%20%C3%BCberarbeiten%20(Text%20schreiben)&color=orange>)
 
 Dieses Programm kann als Vorlage für die Erstellung von HTML-Dateien für Webseiten verwendet werden. Der Code kann einfach in einem beliebigen Texteditor eingegeben werden, und die HTML-Datei kann dann in einem Webbrowser geöffnet werden. Die Bootstrap- und Font Awesome-Bibliotheken, die in der HTML-Datei verlinkt sind, müssen jedoch online verfügbar sein, um ordnungsgemäß geladen zu werden.
 
@@ -90,7 +136,7 @@ Die folgenden Ressourcen werden in den Code importiert:
 
 - [pymsql](https://pypi.org/project/pymysql/) - Dieses Paket enthält eine reine Python-MySQL-Client-Bibliothek, die auf PEP 249 basiert.
 
-Installieren:
+### Installieren
 
 `pip install flask flask_sqlalchemy flask_login sqlalchemy werkzeug pymysql`
 

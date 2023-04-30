@@ -10,7 +10,7 @@ api = Blueprint('api', __name__)
 def api_get_notes():
     """
     Alle Notizen eines Benutzers abrufen.
-    Example GET: /api/call/?username=LeonKohl%40test123.de&password=7044691640
+    Example GET: /api/call/?username=netzwerke%40hwr.berlin&password=netzwerke123
     """
     username = str(request.args.get('username'))
     password = str(request.args.get('password'))
@@ -39,7 +39,7 @@ def api_get_notes():
 def api_create():
     """
     Eine neue Notiz erstellen.
-    Example POST: /api/create/?username=LeonKohl%40test123.de&password=7044691640&note=Test%20Notiz
+    Example POST: /api/create/?username=netzwerke%40hwr.berlin&password=netzwerke123&note=Test%20Notiz
     """
     username = str(request.args.get('username'))
     password = str(request.args.get('password'))
@@ -68,7 +68,7 @@ def api_create():
 def api_delete():
     """
     Alle Notizen eines Benutzers löschen.
-    Example GET: /api/delete/?username=LeonKohl%40test123.de&password=7044691640
+    Example GET: /api/delete/?username=netzwerke%40hwr.berlin&password=netzwerke123
     """
     username = str(request.args.get('username'))
     password = str(request.args.get('password'))
@@ -92,7 +92,7 @@ def api_delete():
 def api_delete_recent():
     """
     Löscht die letzte Notiz eines Benutzers.
-    Example GET: /api/delete-recent/?username=LeonKohl%40test123.de&password=7044691640
+    Example GET: /api/delete-recent/?username=netzwerke%40hwr.berlin&password=netzwerke123
     """
     username = str(request.args.get('username'))
     password = str(request.args.get('password'))
