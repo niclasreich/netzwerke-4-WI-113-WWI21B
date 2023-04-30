@@ -1,6 +1,6 @@
 # Programm zur Verwaltung von Notizen
 
-Das vorliegende Programm ist eine Flask-Webanwendung, die es Benutzern ermöglicht, Notizen zu erstellen und zu speichern. Das Programm ist in Python geschrieben und verwendet Flask- und SQLAlchemy-Bibliotheken sowie Flask-Login zur Benutzerverwaltung. Die Webanwendung wird in einer HTML-Datei angezeigt, die mit Bootstrap und Font Awesome gestaltetist und wird auf einem öffentlich zugänglichen Server gehostet, der mit ngrok bereitgestellt wird. 
+Das vorliegende Programm ist eine Flask-Webanwendung, die es Benutzern ermöglicht, Notizen zu erstellen und zu speichern. Das Programm ist in Python geschrieben und verwendet Flask- und SQLAlchemy-Bibliotheken sowie Flask-Login zur Benutzerverwaltung. Die Webanwendung wird in einer HTML-Datei angezeigt, die mit Bootstrap und Font Awesome gestaltet ist und wird auf einem öffentlich zugänglichen Server gehostet, der mit ngrok bereitgestellt wird. 
 
 
 ## Inhaltsverzeichnis
