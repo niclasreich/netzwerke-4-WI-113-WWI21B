@@ -8,11 +8,11 @@
     "servers": [
       {
         "url": "https://7561-130-61-149-222.ngrok-free.app/",
-        "description": "Live"
+        "description": "Stage"
       },
       {
         "url": "http://localhost:5000/",
-        "description": "Localhost"
+        "description": "Development"
       }
     ],
     "paths": {

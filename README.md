@@ -143,7 +143,25 @@ Die folgenden Ressourcen werden in den Code importiert:
 
 ## Ausführung der App
 
-`python3 main.py`
+### Development
+
+```
+git clone https://github.com/niclasreich/netzwerke-4-WI-113-WWI21B.git
+
+cd netzwerke-4-WI-113-WWI21B
+
+python3 main.py
+```
+
+### Latest Release
+
+```
+git clone --depth 1 --branch $(git ls-remote --tags --refs --sort="v:refname" https://github.com/niclasreich/netzwerke-4-WI-113-WWI21B.git | tail -n1 | awk '{print $2}' | sed 's/refs\/tags\///g') https://github.com/niclasreich/netzwerke-4-WI-113-WWI21B.git
+
+cd netzwerke-4-WI-113-WWI21B
+
+python3 main.py
+```
 
 ## Anzeigen der App
 
@@ -192,7 +210,7 @@ Insgesamt bietet die Anwendung eine einfache Möglichkeit für Benutzer, Notizen
 
 ## API Documentation
 
-Diese API unterstützt [OpenAPI](https://www.openapis.org/). Die Dokumentation kann unter `/api/docs` aufgerufen werden. Die zugehörige Datei kann auch unter `openapi.json` als JSON-Datei heruntergeladen bzw. im Ordner `website/static` angesehen werden.
+Diese API unterstützt [OpenAPI](https://www.openapis.org/). Die Dokumentation kann unter `/api/docs/` aufgerufen werden. Die zugehörige Datei kann auch unter `openapi.json` als JSON-Datei heruntergeladen bzw. im Ordner `website/static` angesehen werden.
 
 ### api_get_notes
 
