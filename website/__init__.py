@@ -26,6 +26,9 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(api, url_prefix='/')
 
+    from .swagger import swagger_ui_blueprint, SWAGGER_URL
+    app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
+
     from .models import User, Note
 
     with app.app_context():

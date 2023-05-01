@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, render_template, request, flash, jsonify, send_from_directory
 from flask_login import login_required, current_user
 from .models import Note
 from . import db
 import json
+
 
 views = Blueprint('views', __name__)
 
@@ -33,3 +34,7 @@ def delete_note():
             flash('Notiz gelöscht.', category='success')
 
     return jsonify({})
+
+@views.route('/openapi.json')
+def openapi():
+    return send_from_directory('static', 'openapi.json')

@@ -32,7 +32,8 @@
         <div class="navbar-nav">
           {% if user.is_authenticated %}
           <a class="nav-item nav-link" id="home" href="/">Notizen</a>
-          <a class="nav-item nav-link" id="openapi" href="https://github.com/niclasreich/netzwerke-4-WI-113-WWI21B" target="_blank">GitHub Repo</a>
+          <a class="nav-item nav-link" id="github" href="https://github.com/niclasreich/netzwerke-4-WI-113-WWI21B" target="_blank">GitHub Repo</a>
+          <a class="nav-item nav-link" id="github" href="/api/docs/">OpenAPI</a>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{ user.email }}
@@ -44,7 +45,8 @@
           {% else %}
           <a class="nav-item nav-link" id="login" href="/login">Anmelden</a>
           <a class="nav-item nav-link" id="signUp" href="/sign-up">Registrieren</a>
-          <a class="nav-item nav-link" id="openapi" href="https://github.com/niclasreich/netzwerke-4-WI-113-WWI21B" target="_blank">GitHub Repo</a>
+          <a class="nav-item nav-link" id="github" href="https://github.com/niclasreich/netzwerke-4-WI-113-WWI21B" target="_blank">GitHub Repo</a>
+          <a class="nav-item nav-link" id="github" href="/api/docs/">OpenAPI</a>
           {% endif %}
         </div>
     </nav>
