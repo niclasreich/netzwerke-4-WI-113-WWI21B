@@ -93,30 +93,14 @@ Insgesamt bietet die Demo-Entwicklungsumgebung eine vollständige Entwicklungs- 
 
 ## Verwendung
 
-![Generic badge](<https://img.shields.io/static/v1?label=Paula%20%20und%20%20Nele&message=Bitte%20%C3%BCberarbeiten%20(Text%20schreiben)&color=orange>)
+Die vorliegende Prüfungsaufgabe beschäftigt sich mit der Erstellung einer Flask-Webanwendung, die eine Benutzerverwaltung und die Speicherung von Notizen ermög-licht. Die Anwendung verfügt zudem über eine API, die nach der OpenAPI-Spezifikation beschrieben wurde und auf einer MySQL-Datenbank mit Python und Bootstrap basiert.
 
-Dieses Programm kann als Vorlage für die Erstellung von HTML-Dateien für Webseiten verwendet werden. Der Code kann einfach in einem beliebigen Texteditor eingegeben werden, und die HTML-Datei kann dann in einem Webbrowser geöffnet werden. Die Bootstrap- und Font Awesome-Bibliotheken, die in der HTML-Datei verlinkt sind, müssen jedoch online verfügbar sein, um ordnungsgemäß geladen zu werden.
-
-Das Programm enthält auch Code für die Handhabung von Flash-Nachrichten, die dazu dienen, dem Benutzer nach bestimmten Aktionen auf der Website Rückmeldungen zu geben. Außerdem enthält es JavaScript-Code zum Löschen einer Notiz auf der Website.
-
-Der Code ist für Flask konzipiert, ein in Python geschriebenes Webanwendungs-Framework.
-
-Die folgenden Ressourcen werden in den Code importiert:
-
-- [Bootstrap 4.4.1 CSS](https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css)
-
-- [Font Awesome 4.7.0 CSS](https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css)
-
-- [jQuery 3.2.1 slim](https://code.jquery.com/jquery-3.2.1.slim.min.js)
-
-- [Popper.js 1.12.9](https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js)
-
-- [Bootstrap 4.0.0 JS](https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js)
+Ziel dieser Prüfungsaufgabe / dieses Konstruktionsentwurfs ist es, eine Webapplikation zu erstellen, bei der verschiedene Teile mittels Sockets oder HTTP in einer bestimmten Pro-grammiersprache miteinander kommunizieren. Zudem soll eine API erstellt und durch eine OpenAPI-Spezifikation beschrieben werden. Die Applikation sollte über mindestens einen Backend- und einen Speicherungsteil verfügen, die auf verschiedenen Servern eingesetzt werden. Die Applikation sollte zudem eine einfache Authentifizierungsfunktion bereitstel-len.
 
 ## Aufgaben
 
-- [x] Webapplikation (z. B. simpler Chat) erstellen, deren Teile mittels Sockets oder HTTP miteinander kommunizieren
-- [ ] Applikationsprotokoll
+- [x] Webapplikation (z. B. simpler Chat) erstellen, deren Teile HTTP miteinander kommunizieren
+- [x] Applikationsprotokoll
 - [x] OpenAPI Spezifikation der API
 - [x] Verteilung von Backend (da wo Logik und API verortet sind) und Speicherungsteil (Datenbank) auf unterschiedlichen Servern
 - [x] Applikation enthält eine Authentifizierung
