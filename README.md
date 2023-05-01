@@ -33,6 +33,10 @@ Das vorliegende Programm ist eine Flask-Webanwendung, die es Benutzern ermöglic
 
 - [Ausführung der App](#ausführung-der-app)
 
+	- [Development](#development)
+
+	- [Latest Release](#latest-release)
+
 - [Anzeigen der App](#anzeigen-der-app)
 
 - [Datenbank-Hosting](#datenbank-hosting)
@@ -93,7 +97,7 @@ Insgesamt bietet die Demo-Entwicklungsumgebung eine vollständige Entwicklungs- 
 
 ## Verwendung
 
-Die vorliegende Prüfungsaufgabe beschäftigt sich mit der Erstellung einer Flask-Webanwendung, die eine Benutzerverwaltung und die Speicherung von Notizen ermög-licht. Die Anwendung verfügt zudem über eine API, die nach der OpenAPI-Spezifikation beschrieben wurde und auf einer MySQL-Datenbank mit Python und Bootstrap basiert.
+Die vorliegende Prüfungsaufgabe beschäftigt sich mit der Erstellung einer Flask-Webanwendung, die eine Benutzerverwaltung und die Speicherung von Notizen ermöglicht. Die Anwendung verfügt zudem über eine API, die nach der OpenAPI-Spezifikation beschrieben wurde und auf einer MySQL-Datenbank mit Python und Bootstrap basiert.
 
 Ziel dieser Prüfungsaufgabe / dieses Konstruktionsentwurfs ist es, eine Webapplikation zu erstellen, bei der verschiedene Teile mittels Sockets oder HTTP in einer bestimmten Pro-grammiersprache miteinander kommunizieren. Zudem soll eine API erstellt und durch eine OpenAPI-Spezifikation beschrieben werden. Die Applikation sollte über mindestens einen Backend- und einen Speicherungsteil verfügen, die auf verschiedenen Servern eingesetzt werden. Die Applikation sollte zudem eine einfache Authentifizierungsfunktion bereitstel-len.
 
