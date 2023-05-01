@@ -117,7 +117,7 @@ Die folgenden Ressourcen werden in den Code importiert:
 
 - [x] Webapplikation (z. B. simpler Chat) erstellen, deren Teile mittels Sockets oder HTTP miteinander kommunizieren
 - [ ] Applikationsprotokoll
-- [ ] OpenAPI Spezifikation Eurer API unter Nutzung von Libraries wie connexion unter Python
+- [x] OpenAPI Spezifikation der API
 - [x] Verteilung von Backend (da wo Logik und API verortet sind) und Speicherungsteil (Datenbank) auf unterschiedlichen Servern
 - [x] Applikation enthält eine Authentifizierung
 
@@ -191,6 +191,8 @@ In der Datei `api.py` definiert der Code Routen zum Erstellen und Abrufen von No
 Insgesamt bietet die Anwendung eine einfache Möglichkeit für Benutzer, Notizen zu erstellen und zu verwalten. Durch die Verwendung von Flask-Login und SQLAlchemy ist es sicher und robust, und es bietet eine gute Grundlage für die Erweiterung der Funktionalität in der Zukunft.
 
 ## API Documentation
+
+Diese API unterstützt [OpenAPI](https://www.openapis.org/). Die Dokumentation kann unter `/api/docs` aufgerufen werden. Die zugehörige Datei kann auch unter `openapi.json` als JSON-Datei heruntergeladen bzw. im Ordner `website/static` angesehen werden.
 
 ### api_get_notes
 
