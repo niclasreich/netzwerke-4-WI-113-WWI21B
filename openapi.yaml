@@ -1,29 +1,30 @@
 openapi: 3.0.0
 info:
   title: Notizen API
+  description: Eine API zur Verwaltung von Notizen mit Flask
   version: 1.0.0
+servers:
+  - url: http://localhost:5000/
 paths:
-  /api/call:
+  /api/call/:
     get:
-      summary: Alle Notizen eines Benutzers abrufen
-      description: "Diese Route gibt alle Notizen des angegebenen Benutzers zurück, sofern die angegebenen Anmeldeinformationen korrekt sind."
+      summary: Get all notes of a user
       parameters:
-        - name: username
-          in: query
+        - in: query
+          name: username
+          description: The email of the user
           required: true
-          description: Die E-Mail-Adresse des Benutzers.
           schema:
             type: string
-            format: email
-        - name: password
-          in: query
+        - in: query
+          name: password
+          description: The password of the user
           required: true
-          description: Das Passwort des Benutzers.
           schema:
             type: string
       responses:
         '200':
-          description: Erfolgreiche Anfrage
+          description: OK
           content:
             application/json:
               schema:
@@ -31,14 +32,14 @@ paths:
                 properties:
                   Page:
                     type: string
-                    example: API Get Notes
+                    example: API
                   Status:
                     type: integer
                     example: 200
-                  Nachricht:
+                  Message:
                     type: string
                     example: OK
-                  Notes:
+                  Notizen:
                     type: array
                     items:
                       type: object
@@ -48,12 +49,13 @@ paths:
                           example: 1
                         data:
                           type: string
-                          example: "Testnote"
+                          example: "Lorem ipsum"
                         date:
                           type: string
-                          example: "2023-04-30 15:30:00"
+                          format: date-time
+                          example: "2023-05-01 10:00:00"
         '204':
-          description: Kein Inhalt
+          description: No Content
           content:
             application/json:
               schema:
@@ -61,15 +63,18 @@ paths:
                 properties:
                   Page:
                     type: string
-                    example: API Get Notes
+                    example: API
                   Status:
                     type: integer
                     example: 204
-                  Nachricht:
+                  Message:
                     type: string
-                    example: "No Content (Keine Notizen vorhanden)"
+                    example: No Content
+                  error:
+                    type: string
+                    example: Keine Notizen vorhanden
         '401':
-          description: Nicht autorisiert
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -77,88 +82,228 @@ paths:
                 properties:
                   Page:
                     type: string
-                    example: API Get Notes
+                    example: API
                   Status:
                     type: integer
                     example: 401
-                  Nachricht:
+                  Message:
                     type: string
-                    example: "Unauthorized (Benutzer existiert nicht)"
-    servers:
-      - url: http://localhost:5000
-        description: Lokaler Server
+                    example: Unauthorized
+                  error:
+                    type: string
+                    example: Username-Passwort-Kombination existiert nicht
   /api/create/:
     post:
-      summary: Eine neue Notiz erstellen.
+      summary: Create a new note
+      description: Create a new note for a user with the provided username and password
       parameters:
-        - name: username
-          in: query
-          description: Der Benutzername des Benutzers.
+        - in: query
+          name: username
           required: true
           schema:
             type: string
-        - name: password
-          in: query
-          description: Das Passwort des Benutzers.
+          description: The username of the user who will own the note
+        - in: query
+          name: password
           required: true
           schema:
             type: string
-        - name: note
-          in: query
-          description: Der Text der Notiz.
+          description: The password of the user who will own the note
+        - in: query
+          name: note
           required: true
           schema:
             type: string
+          description: The content of the note to create
       responses:
         '201':
-          description: Notiz erfolgreich erstellt.
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API
+                  Status:
+                    type: integer
+                    example: 201
+                  Message:
+                    type: string
+                    example: Created
         '400':
-          description: Bad Request - Notiz ist leer.
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API
+                  Status:
+                    type: integer
+                    example: 400
+                  Message:
+                    type: string
+                    example: Bad Request
+                  error:
+                    type: string
+                    example: Notiz ist leer
         '401':
-          description: Unauthorized - Benutzer existiert nicht oder das Passwort ist falsch.
-    get:
-      deprecated: true
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API
+                  Status:
+                    type: integer
+                    example: 401
+                  Message:
+                    type: string
+                    example: Unauthorized
+                  error:
+                    type: string
+                    example: Username-Passwort-Kombination existiert nicht
   /api/delete/:
-    post:
-      summary: Alle Notizen eines Benutzers löschen.
+    get:
+      summary: Delete all notes
+      description: Delete all notes for a user with the provided username and password
       parameters:
-        - name: username
-          in: query
-          description: Der Benutzername des Benutzers.
+        - in: query
+          name: username
           required: true
           schema:
             type: string
-        - name: password
-          in: query
-          description: Das Passwort des Benutzers.
+          description: The username of the user whose notes to delete
+        - in: query
+          name: password
           required: true
           schema:
             type: string
+          description: The password of the user whose notes to delete
       responses:
         '200':
-          description: OK - Alle Notizen erfolgreich gelöscht.
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API
+                  Status:
+                    type: integer
+                    example: 200
+                  Message:
+                    type: string
+                    example: OK
         '401':
-          description: Unauthorized - Benutzer existiert nicht oder das Passwort ist falsch.
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API
+                  Status:
+                    type: integer
+                    example: 401
+                  Message:
+                    type: string
+                    example: Unauthorized   
   /api/delete-recent/:
     get:
       summary: Löscht die letzte Notiz eines Benutzers.
       parameters:
         - name: username
           in: query
-          description: Der Benutzername des Benutzers.
           required: true
+          description: Der Benutzername des Benutzers.
           schema:
             type: string
         - name: password
           in: query
-          description: Das Passwort des Benutzers.
           required: true
+          description: Das Passwort des Benutzers.
           schema:
             type: string
       responses:
-        '200':
-          description: OK - Letzte Notiz erfolgreich gelöscht.
-        '204':
-          description: No Content - Keine Notizen vorhanden.
-        '401':
-          description: Unauthorized - Benutzer existiert nicht oder das Passwort ist falsch.
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API
+                  Status:
+                    type: integer
+                    example: 200
+                  Message:
+                    type: string
+                    example: OK
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API
+                  Status:
+                    type: integer
+                    example: 400
+                  Message:
+                    type: string
+                    example: Bad Request
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API
+                  Status:
+                    type: integer
+                    example: 401
+                  Message:
+                    type: string
+                    example: Unauthorized
+                  error:
+                    type: string
+                    example: Username-Passwort-Kombination existiert nicht
+        "406":
+          description: Not Acceptable
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Page:
+                    type: string
+                    example: API
+                  Status:
+                    type: integer
+                    example: 406
+                  Message:
+                    type: string
+                    example: Not Acceptable
+                  error:
+                    type: string
+                    example: Keine Notizen vorhanden
