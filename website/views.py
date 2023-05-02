@@ -35,6 +35,6 @@ def delete_note():
 
     return jsonify({})
 
-@views.route('/openapi.json')
+@views.route('/api/openapi.json')
 def openapi():
     return send_from_directory('static', 'openapi.json')

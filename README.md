@@ -192,13 +192,13 @@ In der Datei `models.py` werden die Datenbankmodelle für Benutzer und Notizen d
 
 In der Datei `auth.py` definiert der Code Routen für die Benutzerauthentifizierung. Der Code verwendet die Blueprint-Klasse von Flask, um ein separates Modul zu definieren, das in die Flask-App importiert und registriert werden kann. Die Route `/login` nimmt eine GET- oder POST-Anfrage entgegen. Bei einer POST-Anfrage prüft der Code, ob die E-Mail und das Passwort des Benutzers mit einem Datensatz in der Datenbank übereinstimmen. Wenn die E-Mail-Adresse und das Passwort des Benutzers übereinstimmen, meldet der Code den Benutzer an und speichert ein Cookie in seinem Browser. Wenn sie nicht übereinstimmen, wird der Benutzer über den Fehler informiert. Bei einer GET-Anfrage wird dem Benutzer die Anmeldeseite angezeigt. Die `/logout`-Route meldet den Benutzer ab, indem sie sein Cookie entfernt. Die `/sign-up`-Route nimmt eine GET- oder POST-Anfrage entgegen. Bei einer POST-Anfrage prüft der Code, ob die E-Mail, der Vorname und das Passwort des Benutzers bestimmte Kriterien erfüllen. Wenn die E-Mail bereits verwendet wurde oder die Mindestlänge nicht erfüllt, oder wenn der Vorname nicht der Mindestlänge entspricht, oder wenn die Passwörter nicht übereinstimmen oder nicht der Mindestlänge entsprechen, wird dem Benutzer eine Fehlermeldung angezeigt. Andernfalls wird ein neuer Benutzer angelegt und eingeloggt. Bei einer GET-Anfrage wird dem Benutzer die Anmeldeseite angezeigt.
 
-In der Datei `api.py` definiert der Code Routen zum Erstellen und Abrufen von Notizen über eine API. Die Routen werden ebenfalls mithilfe der Blueprint-Klasse von Flask definiert. Die Route `/api/call` nimmt eine GET-Anfrage mit Parametern für den Benutzernamen und das Passwort entgegen. Der Code prüft, ob der Benutzername und das Passwort mit einem Datensatz in der Datenbank übereinstimmen. Wenn sie übereinstimmen, ruft der Code alle mit diesem Benutzer verbundenen Notizen ab und gibt eine JSON-Antwort mit den Notizdaten zurück. Wenn sie nicht übereinstimmen, wird eine Fehlermeldung zurückgegeben. Die `/api/create`-Route nimmt eine GET- oder POST-Anfrage mit Parametern für den Benutzernamen, das Passwort und die Notiz entgegen. Der Code prüft, ob der Benutzername und das Kennwort mit einem Datensatz in der Datenbank übereinstimmen. Wenn sie übereinstimmen und die Notiz nicht leer ist, wird eine neue Notiz erstellt und mit dem Benutzer verknüpft. Wenn der Benutzername oder das Kennwort falsch sind oder die Notiz leer ist, wird eine Fehlermeldung zurückgegeben.
+In der Datei `api.py` definiert der Code Routen zum Erstellen und Abrufen von Notizen über eine API. Die Routen werden ebenfalls mithilfe der Blueprint-Klasse von Flask definiert. Die Route `/api/request/` nimmt eine GET-Anfrage mit Parametern für den Benutzernamen und das Passwort entgegen. Der Code prüft, ob der Benutzername und das Passwort mit einem Datensatz in der Datenbank übereinstimmen. Wenn sie übereinstimmen, ruft der Code alle mit diesem Benutzer verbundenen Notizen ab und gibt eine JSON-Antwort mit den Notizdaten zurück. Wenn sie nicht übereinstimmen, wird eine Fehlermeldung zurückgegeben. Die `/api/create/`-Route nimmt eine GET- oder POST-Anfrage mit Parametern für den Benutzernamen, das Passwort und die Notiz entgegen. Der Code prüft, ob der Benutzername und das Kennwort mit einem Datensatz in der Datenbank übereinstimmen. Wenn sie übereinstimmen und die Notiz nicht leer ist, wird eine neue Notiz erstellt und mit dem Benutzer verknüpft. Wenn der Benutzername oder das Kennwort falsch sind oder die Notiz leer ist, wird eine Fehlermeldung zurückgegeben.
 
 Insgesamt bietet die Anwendung eine einfache Möglichkeit für Benutzer, Notizen zu erstellen und zu verwalten. Durch die Verwendung von Flask-Login und SQLAlchemy ist es sicher und robust, und es bietet eine gute Grundlage für die Erweiterung der Funktionalität in der Zukunft.
 
 ## API Documentation
 
-Diese API unterstützt [OpenAPI](https://www.openapis.org/). Die Dokumentation kann unter `/api/docs/` aufgerufen werden. Die zugehörige Datei kann auch unter `openapi.json` als JSON-Datei heruntergeladen bzw. im Ordner `website/static` angesehen werden.
+Diese API unterstützt [OpenAPI](https://www.openapis.org/). Die Dokumentation kann unter `/api/docs/` aufgerufen werden. Die zugehörige Datei kann auch unter `/api/openapi.json` als JSON-Datei heruntergeladen bzw. im Ordner `/website/static` angesehen werden.
 
 ### api_get_notes
 
@@ -206,7 +206,7 @@ Alle Notizen eines Benutzers abrufen.
 
 **Schnittstelle**
 
-GET `/api/call/`
+GET `/api/request/`
 
 **Parameter**
 
@@ -216,7 +216,7 @@ GET `/api/call/`
 
 **Beispiel**
 
-`/api/call/?username=netzwerke%40hwr.berlin&password=netzwerke123`
+`/api/request/?username=netzwerke%40hwr.berlin&password=netzwerke123`
 
 **Antwort**
 

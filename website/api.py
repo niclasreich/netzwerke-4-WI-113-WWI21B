@@ -14,11 +14,11 @@ UNAUTHORIZED = ({'Page': 'API', 'Status': 401, 'Message': 'Unauthorized'}, {'err
 NOT_ACCEPTABLE = {'Page': 'API', 'Status': 406, 'Message': 'Not Acceptable'}
 
 
-@api.route('/api/call/', methods=['GET'])
+@api.route('/api/request/', methods=['GET'])
 def api_get_notes():
     """
     Alle Notizen eines Benutzers abrufen.
-    Example GET: /api/call/?username=netzwerke%40hwr.berlin&password=netzwerke123
+    Example GET: /api/request/?username=netzwerke%40hwr.berlin&password=netzwerke123
     """
     username = request.args.get('username')
     password = request.args.get('password')
