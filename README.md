@@ -127,7 +127,7 @@ Ziel dieser Prüfungsaufgabe / dieses Konstruktionsentwurfs ist es, eine Webappl
 
 ### Installieren
 
-`pip install flask flask_sqlalchemy flask_login sqlalchemy werkzeug pymysql`
+`pip install flask flask_sqlalchemy flask_login flask_swagger flask_swagger_ui sqlalchemy werkzeug pymysql`
 
 ## Ausführung der App
 
