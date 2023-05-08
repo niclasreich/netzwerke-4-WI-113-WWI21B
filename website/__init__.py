@@ -14,7 +14,7 @@ def create_app():
     Hosting der Datenbank lieber lokal?
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     '''
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sql7615055:dHH854eHaL@sql7.freemysqlhosting.net/sql7615055'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://k97841_netzwerke:p32M7aAcvep2jeE@mysql2ec5.netcup.net/k97841_netzwerke'
 
     db.init_app(app)
 

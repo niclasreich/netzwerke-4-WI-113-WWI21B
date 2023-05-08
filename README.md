@@ -127,7 +127,7 @@ Ziel dieser Prüfungsaufgabe / dieses Konstruktionsentwurfs ist es, eine Webappl
 
 ### Installieren
 
-`pip install flask flask_sqlalchemy flask_login flask_swagger flask_swagger_ui sqlalchemy werkzeug pymysql`
+`pip install flask flask_sqlalchemy flask_login sqlalchemy werkzeug pymysql`
 
 ## Ausführung der App
 
@@ -159,15 +159,10 @@ Gehe zu `http://127.0.0.1:5000`
 
 | Zugangsdaten |                                           |
 | ------------ | ----------------------------------------- |
-| Datenbank    | https://www.freemysqlhosting.net/account/ |
-| E-Mail       | owq03838@zslsz.com                        |
-| Pasaswort    | owq03838@zslsz.com                        |
-| phpmyadmin   | https://www.phpmyadmin.co/                |
-| Server       | sql7.freemysqlhosting.net                 |
-| Name         | sql7615055                                |
-| Username     | sql7615055                                |
-| Pasaswort    | dHH854eHaL                                |
-| Port         | 3306                                      |
+| Server       | mysql2ec5.netcup.net:3306                 |
+| Datenbank    | k97841_netzwerke                          |
+| Username     | k97841_netzwerke                          |
+| Pasaswort    | p32M7aAcvep2jeE                           |
 
 ## App öffentlich verfügbar machen
 
