@@ -34,7 +34,7 @@ def api_get_notes():
     return jsonify(UNAUTHORIZED), 401  # return error if user does not exist or password is incorrect
 
 
-@api.route('/api/create/', methods=['GET', 'POST', 'DELETE'])
+@api.route('/api/create/', methods=['GET', 'POST'])
 def api_create():
     """
     Eine neue Notiz erstellen.
@@ -76,7 +76,7 @@ def api_delete():
     return jsonify(UNAUTHORIZED), 401  # return error if user does not exist or password is incorrect
 
 
-@api.route('/api/delete-recent/', methods=['GET', 'POST'])
+@api.route('/api/delete-recent/', methods=['GET', 'POST', 'DELETE'])
 def api_delete_recent():
     """
     Löscht die letzte Notiz eines Benutzers.
