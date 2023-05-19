@@ -85,7 +85,7 @@ Ngrok ist ein Reverse-Proxy, der es Benutzern ermöglicht, lokale Webanwendungen
 
 | Zugangsdaten |                                             |
 | ------------ | ------------------------------------------- |
-| URL          | https://7561-130-61-149-222.ngrok-free.app/ |
+| URL          | https://58d3-130-61-251-38.ngrok-free.app/ |
 | Benutzername | netzwerke@hwr.berlin                        |
 | Passwort     | netzwerke123                                |
 
@@ -127,7 +127,7 @@ Ziel dieser Prüfungsaufgabe / dieses Konstruktionsentwurfs ist es, eine Webappl
 
 ### Installieren
 
-`pip install flask flask_sqlalchemy flask_login sqlalchemy werkzeug pymysql`
+`pip install flask flask_sqlalchemy flask_login flask_swagger_ui sqlalchemy werkzeug pymysql`
 
 ## Ausführung der App
 
