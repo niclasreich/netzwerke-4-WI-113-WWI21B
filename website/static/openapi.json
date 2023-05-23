@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://7561-130-61-149-222.ngrok-free.app/",
+      "url": "https://58d3-130-61-251-38.ngrok-free.app/",
       "description": "Stage"
     },
     {
@@ -483,6 +483,6 @@
   },
   "externalDocs": {
     "description": "Webapplikation anzeigen",
-    "url": "https://7561-130-61-149-222.ngrok-free.app/"
+    "url": "https://58d3-130-61-251-38.ngrok-free.app/"
   }
 }
