@@ -85,7 +85,7 @@ Ngrok ist ein Reverse-Proxy, der es Benutzern ermöglicht, lokale Webanwendungen
 
 | Zugangsdaten |                                             |
 | ------------ | ------------------------------------------- |
-| URL          | https://58d3-130-61-251-38.ngrok-free.app/ |
+| URL          | https://netzwerke.hwr.niclasreich.de/       |
 | Benutzername | netzwerke@hwr.berlin                        |
 | Passwort     | netzwerke123                                |
 
